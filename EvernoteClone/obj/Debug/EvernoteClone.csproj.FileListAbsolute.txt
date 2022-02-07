@@ -23,6 +23,7 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\L
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\NotesWindow.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\App.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone_Content.g.cs
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone_MarkupCompile.cache
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone_MarkupCompile.lref
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\LoginWindow.baml
@@ -34,4 +35,3 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\Everno
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.CopyComplete
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.exe
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.pdb
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\GeneratedInternalTypeHelper.g.cs
