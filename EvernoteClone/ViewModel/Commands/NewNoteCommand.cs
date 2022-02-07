@@ -13,7 +13,12 @@ namespace EvernoteClone.ViewModel.Commands
         //Need an instance of the view model that requires the command
         public NotesViewModel VM { get; set; }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            //add and remove the event handlers from the value
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public NewNoteCommand(NotesViewModel vm) //instance passed through the constructor
         {
