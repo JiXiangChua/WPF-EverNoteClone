@@ -33,5 +33,22 @@ namespace EvernoteClone.View
         {
 
         }
+
+        private void contentRichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int amountCharacters = (new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd)).Text.Length;
+
+            statusTextBlock.Text = $"Document length: {amountCharacters} characters";
+        }
+
+        private void boldButton_Click(object sender, RoutedEventArgs e)
+        {
+            //gets the text that are selected by the user
+            //var textToBold = new TextRange(contentRichTextBox.Selection.Start, contentRichTextBox.Selection.End); 
+            
+            //Alternatively, there is an easier way:
+            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+
+        }
     }
 }
