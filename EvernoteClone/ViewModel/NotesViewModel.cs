@@ -1,5 +1,7 @@
 ﻿using EvernoteClone.Model;
 using EvernoteClone.ViewModel.Commands;
+using EvernoteClone.ViewModel.Helpers;
+using System;
 using System.Collections.ObjectModel;
 
 namespace EvernoteClone.ViewModel
@@ -30,6 +32,32 @@ namespace EvernoteClone.ViewModel
             NewNotebookCommand = new NewNotebookCommand(this);
             NewNoteCommand = new NewNoteCommand(this);
         }
+
+        public void CreateNoteBook()
+        {
+            NoteBook newNotebook = new NoteBook()
+            {
+                Name = "New notebook",
+            };
+
+            DatabaseHelper.Insert(newNotebook);
+        }
+
+        public void CreateNote(int notebookId)
+        {
+            Note newNote = new Note()
+            {
+                NotebookId = notebookId,
+                CreatedTime = DateTime.Now,
+                UpdatedTime = DateTime.Now,
+                Title = "New note"
+            };
+
+            DatabaseHelper.Insert(newNote); //no need to establish what type of data is passed to the Insert generics
+            //Generic method can infer from its caller and set the T according to the data type of the object passed in.
+
+        }
+
 
     }
 }
