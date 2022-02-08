@@ -41,3 +41,6 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\Everno
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.CopyComplete
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.exe
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.pdb
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.AssemblyReference.cache
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Newtonsoft.Json.xml
