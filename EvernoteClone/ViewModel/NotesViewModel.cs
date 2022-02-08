@@ -5,6 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 
 namespace EvernoteClone.ViewModel
 {
@@ -25,10 +26,24 @@ namespace EvernoteClone.ViewModel
             }
         }
 
+        private Visibility isVisible;
+        public Visibility IsVisible
+        {
+            get { return isVisible; }
+            set
+            {
+                isVisible = value;
+                OnPropertyChanged("IsVisible");
+            }
+        }
+
+
         public ObservableCollection<Note> Notes { get; set; }
 
         public NewNotebookCommand NewNotebookCommand { get; set; }
         public NewNoteCommand NewNoteCommand { get; set; }
+        public EditCommand EditCommand { get; set; }
+        public EndEditingCommand EndEditingCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,9 +51,13 @@ namespace EvernoteClone.ViewModel
         {
             NewNotebookCommand = new NewNotebookCommand(this);
             NewNoteCommand = new NewNoteCommand(this);
+            EditCommand = new EditCommand(this);
+            EndEditingCommand = new EndEditingCommand(this);
 
             Notebooks = new ObservableCollection<NoteBook>();
             Notes = new ObservableCollection<Note>();
+
+            IsVisible = Visibility.Collapsed;
 
             //Read the notebooks from database and display inside the list view
             GetNotebooks();
@@ -104,6 +123,22 @@ namespace EvernoteClone.ViewModel
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void StartEditing()
+        {
+            //Start editing to true
+            IsVisible = Visibility.Visible;
+        }
+
+        public void StopEditing(NoteBook notebook)
+        {
+            //Start editing to true
+            IsVisible = Visibility.Collapsed;
+
+            //Save new changes to a notebook
+            DatabaseHelper.Update(notebook);
+            GetNotebooks(); //gets the updated database to the list view
         }
     }
 }

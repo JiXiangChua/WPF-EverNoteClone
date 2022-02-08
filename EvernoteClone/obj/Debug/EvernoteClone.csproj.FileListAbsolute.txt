@@ -39,3 +39,6 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\U
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNotebook.baml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.baml
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.xml
