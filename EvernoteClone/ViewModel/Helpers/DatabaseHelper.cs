@@ -57,23 +57,43 @@ namespace EvernoteClone.ViewModel.Helpers
             }
         }
 
-        public static bool Update<T>(T item) 
+        public static async Task<bool> Update<T>(T item) where T : IHasId
         {
-            bool result = false; 
+            //bool result = false; 
 
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //{
+            //    //While the SQLite connection is open
+
+            //    conn.CreateTable<T>(); 
+            //    int numberOfRows = conn.Update(item); 
+            //    if (numberOfRows > 0) 
+            //        result = true;
+
+            //    //Close the SQLite connection when it leaves this block of code
+            //}
+
+            //return result;
+
+            /*Firebase Method*/
+            string jsonBody = JsonConvert.SerializeObject(item);
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            //Set up a http client to perform request
+            using (var client = new HttpClient())
             {
-                //While the SQLite connection is open
-
-                conn.CreateTable<T>(); 
-                int numberOfRows = conn.Update(item); 
-                if (numberOfRows > 0) 
-                    result = true;
-
-                //Close the SQLite connection when it leaves this block of code
+                //Use PutAsync method for updaing database
+                var result = await client.PutAsync($"{dbPath}{item.GetType().Name.ToLower()}/{item.Id}.json", content);
+                if (result.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
-            return result;
         }
 
         public static bool Delete<T>(T item)
