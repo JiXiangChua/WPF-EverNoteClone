@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="API_keys.cs" />
+    <Compile Include="ViewModel\Commands\DeleteCommand.cs" />
     <Compile Include="ViewModel\Commands\EditCommand.cs" />
     <Compile Include="ViewModel\Commands\EndEditingCommand.cs" />
     <Compile Include="ViewModel\Commands\LoginCommand.cs" />

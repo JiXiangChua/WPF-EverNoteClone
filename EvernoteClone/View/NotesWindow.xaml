@@ -45,6 +45,9 @@
                                 <ContextMenu>
                                     <MenuItem Header="Rename"
                                               Command="{Binding Source={StaticResource NotesVM}, Path=EditCommand}"/>
+                                    <MenuItem Header="Delete"
+                                              Command="{Binding Source={StaticResource NotesVM}, Path=DeleteCommand}"
+                                              CommandParameter="{Binding}"/>
                                 </ContextMenu>
                             </uc:DisplayNotebook.ContextMenu>
                         </uc:DisplayNotebook>
@@ -69,7 +72,15 @@
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNote Note="{Binding}" />
+                    <uc:DisplayNote Note="{Binding}">
+                        <uc:DisplayNote.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Delete"
+                                              Command="{Binding Source={StaticResource NotesVM}, Path=DeleteCommand}"
+                                              CommandParameter="{Binding}"/>
+                            </ContextMenu>
+                        </uc:DisplayNote.ContextMenu>
+                    </uc:DisplayNote>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

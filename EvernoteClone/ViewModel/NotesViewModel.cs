@@ -58,6 +58,7 @@ namespace EvernoteClone.ViewModel
         public NewNoteCommand NewNoteCommand { get; set; }
         public EditCommand EditCommand { get; set; }
         public EndEditingCommand EndEditingCommand { get; set; }
+        public DeleteCommand DeleteCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler SelectedNoteChanged;
@@ -68,6 +69,7 @@ namespace EvernoteClone.ViewModel
             NewNoteCommand = new NewNoteCommand(this);
             EditCommand = new EditCommand(this);
             EndEditingCommand = new EndEditingCommand(this);
+            DeleteCommand = new DeleteCommand(this);
 
             Notebooks = new ObservableCollection<NoteBook>();
             Notes = new ObservableCollection<Note>();
@@ -156,5 +158,12 @@ namespace EvernoteClone.ViewModel
             await DatabaseHelper.Update(notebook);
             GetNotebooks(); //gets the updated database to the list view
         }
+
+        public async void DeleteNotebookOrNote(IHasId deleteEntry) //Since both notebook and note are implementing the IHasId interface
+        {
+            await DatabaseHelper.Delete(deleteEntry); 
+            GetNotebooks();
+        }
+
     }
 }
