@@ -83,6 +83,7 @@ namespace EvernoteClone.ViewModel
             NoteBook newNotebook = new NoteBook()
             {
                 Name = "New notebook",
+                UserId = App.UserId
             };
 
             DatabaseHelper.Insert(newNotebook);
@@ -109,7 +110,7 @@ namespace EvernoteClone.ViewModel
         public void GetNotebooks()
         {
             //Read the database and get the results
-            var notebooks = DatabaseHelper.Read<NoteBook>();
+            var notebooks = DatabaseHelper.Read<NoteBook>().Where(n => n.UserId == App.UserId).ToList();
 
             Notebooks.Clear();
             foreach(var notebook in notebooks)
