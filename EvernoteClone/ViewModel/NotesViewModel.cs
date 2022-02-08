@@ -78,7 +78,7 @@ namespace EvernoteClone.ViewModel
             GetNotebooks();
         }
 
-        public void CreateNoteBook()
+        public async void CreateNoteBook()
         {
             NoteBook newNotebook = new NoteBook()
             {
@@ -86,12 +86,12 @@ namespace EvernoteClone.ViewModel
                 UserId = App.UserId
             };
 
-            DatabaseHelper.Insert(newNotebook);
+            await DatabaseHelper.Insert(newNotebook); //wait for the insert method to return before running next line of code
 
             GetNotebooks(); // so that the list view is updated with whatever new notebook has just been created.
         }
 
-        public void CreateNote(int notebookId)
+        public async void CreateNote(string notebookId)
         {
             Note newNote = new Note()
             {
@@ -101,16 +101,16 @@ namespace EvernoteClone.ViewModel
                 Title = "New note"
             };
 
-            DatabaseHelper.Insert(newNote); //no need to establish what type of data is passed to the Insert generics
+            await DatabaseHelper.Insert(newNote); //no need to establish what type of data is passed to the Insert generics
             //Generic method can infer from its caller and set the T according to the data type of the object passed in.
 
             GetNotes(); //so that the list view is updated with whatever new note has just been created.
         }
 
-        public void GetNotebooks()
+        public async void GetNotebooks()
         {
             //Read the database and get the results
-            var notebooks = DatabaseHelper.Read<NoteBook>().Where(n => n.UserId == App.UserId).ToList();
+            var notebooks = (await DatabaseHelper.Read<NoteBook>()).Where(n => n.UserId == App.UserId).ToList();
 
             Notebooks.Clear();
             foreach(var notebook in notebooks)
@@ -119,14 +119,14 @@ namespace EvernoteClone.ViewModel
             }
         }
 
-        private void GetNotes()
+        private async void GetNotes()
         {
             if (SelectedNotebook != null)
             {
                 //Read the database and get the results by filtering and returning
                 //the note's notebookid that matches the selectedNotebook id.
                 //The .where() is using Linq.
-                var notes = DatabaseHelper.Read<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
+                var notes = (await DatabaseHelper.Read<Note>()).Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
 
                 Notes.Clear();
                 foreach (var note in notes)
