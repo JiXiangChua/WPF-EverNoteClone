@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\App.xaml
-21098317495
+4-1719366202
 3-1145097437
-171203309154
+19689376269
 128-154682662
-View\LoginWindow.xaml;View\NotesWindow.xaml;
+View\LoginWindow.xaml;View\NotesWindow.xaml;View\UserControls\DisplayNote.xaml;View\UserControls\DisplayNotebook.xaml;
 
-False
+True
 
