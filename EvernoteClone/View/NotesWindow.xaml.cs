@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,7 +22,7 @@ namespace EvernoteClone.View
     /// </summary>
     public partial class NotesWindow : Window
     {
-        SpeechRecognitionEngine recognizer;
+        //SpeechRecognitionEngine recognizer;
 
         public NotesWindow()
         {
@@ -82,9 +83,25 @@ namespace EvernoteClone.View
         {
             //gets the text that are selected by the user
             //var textToBold = new TextRange(contentRichTextBox.Selection.Start, contentRichTextBox.Selection.End); 
+
+            bool isButtonChecked = (sender as ToggleButton).IsChecked ?? false; //if IsChecked is null, return false to the boolean variable
+
+            if(isButtonChecked)
+                //Alternatively, there is an easier way:
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            else
+                contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
+
+        }
+
+        private void contentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            //Event handler triggers everytime the selection inside the richtextbox changes
+            var selectedWeight = contentRichTextBox.Selection.GetPropertyValue(FontWeightProperty);
             
-            //Alternatively, there is an easier way:
-            contentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            //check if the selected text's weight is equal to bold. If is bold, then the bold button is checked,
+            //else the bold button is not checked
+            boldButton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && (selectedWeight.Equals(FontWeights.Bold)); //check that selectedweight is not null since selectedweight property can be null.
 
         }
     }
