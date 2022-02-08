@@ -96,23 +96,43 @@ namespace EvernoteClone.ViewModel.Helpers
 
         }
 
-        public static bool Delete<T>(T item)
+        public static async Task<bool> Delete<T>(T item) where T : IHasId
         {
-            bool result = false;
+            //bool result = false;
 
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            //{
+            //    //While the SQLite connection is open
+
+            //    conn.CreateTable<T>();
+            //    int numberOfRows = conn.Delete(item);
+            //    if (numberOfRows > 0)
+            //        result = true;
+
+            //    //Close the SQLite connection when it leaves this block of code
+            //}
+
+            //return result;
+
+            /*Firebase Method*/
+            //Dont need the below two lines since we are deleting item not adding them to the database
+            //string jsonBody = JsonConvert.SerializeObject(item);
+            //var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            //Set up a http client to perform request
+            using (var client = new HttpClient())
             {
-                //While the SQLite connection is open
-
-                conn.CreateTable<T>();
-                int numberOfRows = conn.Delete(item);
-                if (numberOfRows > 0)
-                    result = true;
-
-                //Close the SQLite connection when it leaves this block of code
+                //Use DeleteAsync method for deleting entry in database
+                var result = await client.DeleteAsync($"{dbPath}{item.GetType().Name.ToLower()}/{item.Id}.json");
+                if (result.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            return result;
         }
 
         //Read from database

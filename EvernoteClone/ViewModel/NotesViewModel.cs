@@ -147,13 +147,13 @@ namespace EvernoteClone.ViewModel
             IsVisible = Visibility.Visible;
         }
 
-        public void StopEditing(NoteBook notebook)
+        public async void StopEditing(NoteBook notebook)
         {
             //Start editing to true
             IsVisible = Visibility.Collapsed;
 
             //Save new changes to a notebook
-            DatabaseHelper.Update(notebook);
+            await DatabaseHelper.Update(notebook);
             GetNotebooks(); //gets the updated database to the list view
         }
     }
