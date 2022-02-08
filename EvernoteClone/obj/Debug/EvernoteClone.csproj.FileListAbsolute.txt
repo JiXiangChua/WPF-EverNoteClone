@@ -4,6 +4,7 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\runtim
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\EvernoteClone.exe.config
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\EvernoteClone.exe
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\EvernoteClone.pdb
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\SQLite-net.dll
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\SQLitePCLRaw.core.dll
@@ -13,14 +14,17 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Memory.dll
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\SQLite-net.xml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Buffers.xml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Memory.xml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.AssemblyReference.cache
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\LoginWindow.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\NotesWindow.g.cs
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.g.cs
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNotebook.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\App.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone_Content.g.cs
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -28,6 +32,8 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\Everno
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone_MarkupCompile.lref
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\LoginWindow.baml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\NotesWindow.baml
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.baml
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNotebook.baml
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.g.resources
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.Properties.Resources.resources
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.GenerateResource.cache
@@ -35,10 +41,3 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\Everno
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.CopyComplete
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.exe
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.pdb
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNotebook.g.cs
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNotebook.baml
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.g.cs
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\View\UserControls\DisplayNote.baml
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.dll
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\Microsoft.Xaml.Behaviors.xml

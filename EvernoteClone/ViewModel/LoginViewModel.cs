@@ -20,7 +20,106 @@ namespace EvernoteClone.ViewModel
         public User User
         {
             get { return user; }
-            set { user = value; }
+            set
+            {
+                user = value;
+                OnPropertyChanged("User");
+            }
+        }
+
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                username = value;
+                User = new User
+                {
+                    Username = username, //sets the username value
+                    Password = this.Password, //retain the original password value
+                    Name = this.Name,
+                    Lastname = this.Lastname,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("Username");
+            }
+        }
+
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                User = new User
+                {
+                    Username = this.Username, //retain the original username value using the Username prop of this view model
+                    Password = password, //sets the password value
+                    Name = this.Name,
+                    Lastname = this.Lastname,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("Password");
+            }
+        }
+
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = name,
+                    Lastname = this.Lastname,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("Name");
+            }
+        }
+
+        private string lastname;
+        public string Lastname
+        {
+            get { return lastname; }
+            set
+            {
+                lastname = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = this.Name,
+                    Lastname = lastname,
+                    ConfirmPassword = this.ConfirmPassword
+                };
+                OnPropertyChanged("Lastname");
+            }
+        }
+
+        private string confirmPassword;
+        public string ConfirmPassword
+        {
+            get { return confirmPassword; }
+            set
+            {
+                confirmPassword = value;
+                User = new User
+                {
+                    Username = this.Username,
+                    Password = this.Password,
+                    Name = this.Name,
+                    Lastname = this.Lastname,
+                    ConfirmPassword = confirmPassword
+                };
+                OnPropertyChanged("ConfirmPassword");
+            }
         }
 
         private Visibility loginVis;
@@ -60,6 +159,8 @@ namespace EvernoteClone.ViewModel
             RegisterCommand = new RegisterCommand(this);
             LoginCommand = new LoginCommand(this);
             ShowRegisterCommand = new ShowRegisterCommand(this);
+
+            User = new User();
         }
 
         public void SwitchViews()
@@ -76,6 +177,16 @@ namespace EvernoteClone.ViewModel
                 RegisterVis = Visibility.Collapsed;
                 LoginVis = Visibility.Visible;
             }
+        }
+
+        public void Login()
+        {
+            //TODO: Login
+        }
+
+        public void Register()
+        {
+            //TODO: Register
         }
 
         private void OnPropertyChanged(string propertyName)
