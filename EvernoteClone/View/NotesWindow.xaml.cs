@@ -59,6 +59,20 @@ namespace EvernoteClone.View
             //recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+
+            if (string.IsNullOrEmpty(App.UserId))
+            {
+                //if user id is null or empty, then launch login window
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+
+                viewModel.GetNotebooks();
+            }
+        }
+
         private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
         { //handler executed every single time the selected node changes
 

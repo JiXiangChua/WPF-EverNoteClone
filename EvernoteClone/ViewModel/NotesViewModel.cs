@@ -106,7 +106,7 @@ namespace EvernoteClone.ViewModel
             GetNotes(); //so that the list view is updated with whatever new note has just been created.
         }
 
-        private void GetNotebooks()
+        public void GetNotebooks()
         {
             //Read the database and get the results
             var notebooks = DatabaseHelper.Read<NoteBook>();
