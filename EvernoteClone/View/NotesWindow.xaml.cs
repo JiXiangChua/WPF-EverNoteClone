@@ -1,4 +1,5 @@
-﻿using EvernoteClone.ViewModel;
+﻿using Azure.Storage.Blobs;
+using EvernoteClone.ViewModel;
 using EvernoteClone.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace EvernoteClone.View
             }
         }
 
-        private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
+        private async void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
         { //handler executed every single time the selected node changes
 
             contentRichTextBox.Document.Blocks.Clear(); //clear the rich text box before checking if a selected note is exists.
@@ -83,11 +84,22 @@ namespace EvernoteClone.View
             {
                 if (!string.IsNullOrEmpty(viewModel.SelectedNote.FileLocation))
                 {
-                    using (FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
+                    //using (FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open))
+                    //{
+                    //    var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
+                    //    contents.Load(fileStream, DataFormats.Rtf);
+                    //}; 
+
+                    /*For using azure cloud container services to store the notes*/
+                    //Download the blob from cloud into these new locations on your local machine
+                    string downloadPath = $"{viewModel.SelectedNote.Id}.rtf";
+                    await new BlobClient(new Uri(viewModel.SelectedNote.FileLocation)).DownloadToAsync(downloadPath);
+
+                    using (FileStream fileStream = new FileStream(downloadPath, FileMode.Open))
                     {
                         var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
                         contents.Load(fileStream, DataFormats.Rtf);
-                    }; 
+                    };
                 }
             }
         }
@@ -202,11 +214,11 @@ namespace EvernoteClone.View
 
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
-            viewModel.SelectedNote.FileLocation = rtfFile;
-            DatabaseHelper.Update(viewModel.SelectedNote);
+            string fileName = $"{viewModel.SelectedNote.Id}.rtf";
+            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            
 
             //To save the file, we need a file stream
             // first params is the location of the file we are using
@@ -216,7 +228,26 @@ namespace EvernoteClone.View
                 var contents = new TextRange(contentRichTextBox.Document.ContentStart, contentRichTextBox.Document.ContentEnd);
                 contents.Save(fileStream, DataFormats.Rtf); //first params requires a stream that the content will be saving to, 2nd params is the data format being saved.
             };
+
+            viewModel.SelectedNote.FileLocation = await UpdateFile(rtfFile, fileName);
+            await DatabaseHelper.Update(viewModel.SelectedNote);
         }
 
+        private async Task<string> UpdateFile(string rtfFilePath, string fileName)
+        {// the rtfFilePath is going to help me access the actual file, but the file name is
+         // going to help me set a name for the blob storage that I am going to be uploading.
+
+            //First step: Create connection with the Azure blob storage service so that we can upload and store files online in the cloud
+            string connectionString = ""; //get the API connection string from your azure blob storage account.
+            string containerName = "notes"; //this name must be the same as the name in the azure blob storage container
+
+            var container = new BlobContainerClient(connectionString, containerName);
+            container.CreateIfNotExistsAsync(); //create the container with the containerName if it already not exists. If it does exists, nothing is going to happen
+
+            var blob = container.GetBlobClient(fileName); //pass in the name of the blob
+            await blob.UploadAsync(rtfFilePath);
+
+            return $"https://evernotestoragelpa.blob.core.windows.net/notes/{fileName}"; //get the url of the container from your azure account and pass in the blob name which is our filename in this case
+        }
     }
 }
