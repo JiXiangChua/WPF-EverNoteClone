@@ -28,7 +28,8 @@ namespace EvernoteClone.ViewModel.Commands
         {
             IHasId deleteEntry = parameter as IHasId; //Since both notebook and note are implementing the IHasId interface
 
-            ViewModel.DeleteNotebookOrNote(deleteEntry);
+            if (deleteEntry != null)
+                ViewModel.DeleteNotebookOrNote(deleteEntry);
         }
     }
 }

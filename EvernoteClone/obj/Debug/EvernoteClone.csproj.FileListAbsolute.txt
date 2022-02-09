@@ -64,3 +64,4 @@ C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\Everno
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.exe
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.pdb
 C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\bin\Debug\View\EvernoteClone_App_icon.ico
+C:\Users\jixia\Desktop\WPF Tutorial\EvernoteClone\EvernoteClone\obj\Debug\EvernoteClone.csproj.AssemblyReference.cache

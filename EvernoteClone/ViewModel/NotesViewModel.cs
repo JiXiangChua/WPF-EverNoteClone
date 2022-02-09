@@ -161,7 +161,8 @@ namespace EvernoteClone.ViewModel
 
         public async void DeleteNotebookOrNote(IHasId deleteEntry) //Since both notebook and note are implementing the IHasId interface
         {
-            await DatabaseHelper.Delete(deleteEntry); 
+            await DatabaseHelper.Delete(deleteEntry);
+            GetNotes();
             GetNotebooks();
         }
 

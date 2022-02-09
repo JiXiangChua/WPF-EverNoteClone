@@ -118,9 +118,13 @@
             </ToolBar>
         </ToolBarTray>
         <Grid>
-            <RichTextBox x:Name="contentRichTextBox"
-                         TextChanged="contentRichTextBox_TextChanged"
-                         SelectionChanged="contentRichTextBox_SelectionChanged" />
+            <StackPanel>
+                <TextBox Margin="10"
+                         Text="{Binding Path=SelectedNote.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <RichTextBox x:Name="contentRichTextBox"
+                            TextChanged="contentRichTextBox_TextChanged"
+                            SelectionChanged="contentRichTextBox_SelectionChanged" />
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>
